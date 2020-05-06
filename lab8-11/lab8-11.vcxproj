@@ -147,15 +147,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="console.cpp" />
     <ClCompile Include="drone.cpp" />
     <ClCompile Include="lab8-11.cpp" />
     <ClCompile Include="phone.cpp" />
-    <ClCompile Include="testForPhonesAndDrones.cpp" />
+    <ClCompile Include="phoneValidation.cpp" />
+    <ClCompile Include="repoTests.cpp" />
+    <ClCompile Include="series.cpp" />
+    <ClCompile Include="seriesValidation.cpp" />
+    <ClCompile Include="service.cpp" />
+    <ClCompile Include="testsForObjects.cpp" />
+    <ClCompile Include="user.cpp" />
+    <ClCompile Include="yo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="console.h" />
     <ClInclude Include="drone.h" />
     <ClInclude Include="phone.h" />
-    <ClInclude Include="testForPhonesAndDrones.h" />
+    <ClInclude Include="phoneValidation.h" />
+    <ClInclude Include="repoFile.h" />
+    <ClInclude Include="repoFileCSV.h" />
+    <ClInclude Include="repoFileHTML.h" />
+    <ClInclude Include="repoTemplate.h" />
+    <ClInclude Include="repoTests.h" />
+    <ClInclude Include="serializer.h" />
+    <ClInclude Include="serializerSeries.h" />
+    <ClInclude Include="serializerUser.h" />
+    <ClInclude Include="series.h" />
+    <ClInclude Include="seriesValidation.h" />
+    <ClInclude Include="service.h" />
+    <ClInclude Include="testsForObjects.h" />
+    <ClInclude Include="user.h" />
+    <ClInclude Include="yo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="users.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="things.csv" />
+    <None Include="things.html" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

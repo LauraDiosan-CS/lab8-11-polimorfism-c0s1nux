@@ -1,23 +1,26 @@
 #pragma once
 
-class Drone {
+#include "series.h"
+#include "yo.h"
+using namespace std;
+
+class Drone:public Series {
 protected:
-	char* productionName;
-	char* modelName;
-	int numberOfProducts;
 	int numberOfRotors;
 public:
 	Drone();
 	Drone(const Drone&);
 	Drone(const char*, const char*, int, int);
 	bool operator==(const Drone&);
-	char* getProductionName();
-	char* getModelName();
-	int getNumberOfProducts();
 	int getNumberOfRotors();
-	void setProductionName(const char*);
-	void setModelName(const char*);
-	void setNumberOfProducts(int);
 	void setNumberOfRotors(int);
 	~Drone();
+	Drone& operator= (const Drone&);
+	friend ostream& operator <<(ostream& os, Drone aDrone);
+	friend istream& operator>>(istream& is, Drone& aDrone);
+	Drone(string, char);
+	void fromString(string, char);
+	string toString();
+	string toStringWithDelimiter(char);
+	Series* clone();
 };

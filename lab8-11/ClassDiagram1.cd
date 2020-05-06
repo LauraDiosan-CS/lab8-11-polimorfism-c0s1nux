@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Console" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGAAAAAhAAAAAAAAAAAAAAIAAACAAAAAEAAAAACEAA=</HashCode>
+      <FileName>console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Drone" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAIAAAAQAAAAAAAAJQAAAAAAAIAAAAAgEAAAAAI=</HashCode>
+      <FileName>drone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Phone" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAACIAAAABQAAAAAAAAIAAAAgMAAAAAI=</HashCode>
+      <FileName>phone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhoneException" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>phoneValidation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhoneValidation" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>phoneValidation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RepositoryFile&lt;T&gt;" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIBAAAAAAAAAQAAAgAAAAAAAAAEAQDAAEAAA=</HashCode>
+      <FileName>repoFile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RepositoryFileCSV&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIAAAAAAAAAAAAAAgAAAAAIAAAEAQDAAQAAA=</HashCode>
+      <FileName>repoFileCSV.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RepositoryFileHTML&lt;T&gt;" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAIACAAAAAAAAAQAAgAAAAAAAAAEAQDAAAAAA=</HashCode>
+      <FileName>repoFileHTML.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Repository&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEBIQAIAAIgAAAACAAAAAAAAAAAAAAAAAAAADAIAAAA=</HashCode>
+      <FileName>repoTemplate.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Serializer&lt;T&gt;" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQECAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>serializer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SerializerSeries" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>serializerSeries.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SerializerUser" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>serializerUser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Series" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAICECABQAAAAAAAAAASAAoFACIAAM=</HashCode>
+      <FileName>series.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesException" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEBAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>seriesValidation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeriesValidation" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>seriesValidation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Service" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAIUAAAAIACACAAAAAAAAAAAAACSgCAAAEALAAAEAA=</HashCode>
+      <FileName>service.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAEAAAAQAAABAEAIBQEQAAAAAAAAAAAAEgAAAIA=</HashCode>
+      <FileName>user.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
