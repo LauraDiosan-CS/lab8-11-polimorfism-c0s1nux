@@ -37,25 +37,37 @@ Series* Service::getItemFromPos(int i) {
 }
 
 int Service::addElem(Series*& aSeries) {
-	seriesValidator.validateSeries(aSeries);
-	repository.addElem(aSeries);
-	return 1;
+	int result = repository.addElem(aSeries);
+	return result;
 }
 
-void Service::delElem(Series*& aSeries) {
+int Service::delElem(Series*& aSeries) {
 	if (repository.findElem(aSeries) == -1) {
-		throw exception("Item was not found!\n");
+		return -1;
 	}
 	else {
-		repository.delElem(aSeries);
+		int result = repository.delElem(aSeries);
+		return result;
 	}
 }
 
-void Service::updateElem(Series* oldSeries, Series*& newSeries) {
-	seriesValidator.validateSeries(newSeries);
-	repository.updateElem(oldSeries, newSeries);
+int Service::updateElem(Series*& oldSeries, Series* newSeries) {
+	int result = repository.updateElem(oldSeries, newSeries);
+	return result;
 }
 
 void Service::validatePhone(Phone aPhone) {
 	phoneValidator.validatePhone(aPhone);
+}
+
+list<Series*> Service::searchByProductionName(char* aProductionName) {
+	return repository.searchByProductionName(aProductionName);
+}
+
+int Service::findPositionOfElem(Series* aSeries) {
+	return repository.findElem(aSeries);
+}
+
+void Service::validateSeries(Series* aSeries) {
+	seriesValidator.validateSeries(aSeries);
 }

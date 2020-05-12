@@ -1,19 +1,2 @@
-﻿  console.cpp
-  drone.cpp
-  lab8-11.cpp
-  phone.cpp
-C:\Users\sirit\source\repos\lab8-11\lab8-11\phone.cpp(69,16): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sirit\source\repos\lab8-11\lab8-11\phone.cpp(86,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sirit\source\repos\lab8-11\lab8-11\phone.cpp(96,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\sirit\source\repos\lab8-11\lab8-11\phone.cpp(107,20): warning C4018: '<': signed/unsigned mismatch
-  phoneValidation.cpp
-  repoTests.cpp
-  series.cpp
-  seriesValidation.cpp
-  service.cpp
-  testsForObjects.cpp
-  user.cpp
-  yo.cpp
-  Generating Code...
-C:\Users\sirit\source\repos\lab8-11\lab8-11\serializerSeries.h(32): warning C4715: 'SerializerSeries::fromString': not all control paths return a value
+﻿  user.cpp
   lab8-11.vcxproj -> C:\Users\sirit\source\repos\lab8-11\Debug\lab8-11.exe

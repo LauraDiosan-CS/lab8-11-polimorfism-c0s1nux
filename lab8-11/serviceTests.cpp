@@ -9,54 +9,24 @@
 #include "repoFileCSV.h"
 #include "repoFileHTML.h"
 #include "serializerSeries.h"
+#include "serializerUser.h"
+#include "service.h"
 
 using namespace std;
 
-void repoTests() {
+void serviceHTMLTests() {
 	cout << "-------------------------------------------------------------\n";
-	cout << "Beginning tests for repositories!\n";
+	cout << "Beginning tests for services!\n";
 	cout << "-------------------------------------------------------------\n";
 	Sleep(500);
 	system("CLS");
 	cout << "-------------------------------------------------------------\n";
-	cout << "Beginning tests for repository.";
-	vector<string> operators;
-	string anOperator;
-	anOperator = "Vodafone";
-	operators.push_back(anOperator);
-	Series* series1 = new Phone("yo", "a 10 wtf", 1, operators);
-	Series* series2 = new Phone("yoo", "b 15 is", 2, operators);
-	Series* series3 = new Phone("yooo", "c 19 this", 3, operators);
-	Series* series4 = new Phone("yoooo", "d 7 damn", 4, operators);
-	Repository<Series*> rep;
-	rep.addElem(series1);
-	rep.addElem(series2);
-	rep.addElem(series3);
-	rep.addElem(series4);
-	Sleep(500);
-	cout << ".";
-	assert(rep.getSize() == 4);
-	assert(*rep.getAll().front() == *series1);
-	assert(*rep.getAll().back() == *series4);
-	assert(*rep.getItemFromPos(0) == *series1);
-	Series* series5 = new Phone("yoooo", "d 7 oop", 4, operators);
-	Series* series6 = new Phone("something", "not", 1, operators);
-	assert(rep.findElem(series4) == 3);
-	assert(rep.findElem(series6) == -1);
-	rep.delElem(series3);
-	assert(rep.findElem(series3) == -1);
-	assert(rep.getSize() == 3);
-	Sleep(500);
-	cout << ".\n";
-	cout << "Success!\n";
-	cout << "-------------------------------------------------------------\n";
-}
-
-void repoHTMLTests() {
-	cout << "-------------------------------------------------------------\n";
-	cout << "Beginning tests for HTML repository.";
+	cout << "Beginning tests for service with HTML repository.";
 	SerializerSeries* serial = new SerializerSeries();
+	SerializerUser* user = new SerializerUser();
 	RepositoryFileHTML<Series*>repof("tests.html", serial);
+	RepositoryFile<User*> repo("users.txt", ' ', user);
+	Service serv(repof, repo);
 	vector<string> operators;
 	string anOperator;
 	anOperator = "Vodafone";
@@ -71,21 +41,21 @@ void repoHTMLTests() {
 	Series* series3 = new Drone(drone1);
 	Series* series4 = new Drone(drone2);
 	Series* series5 = new Drone(drone3);
-	repof.addElem(series1);
-	repof.addElem(series2);
-	repof.addElem(series3);
-	repof.addElem(series4);
-	list<Series*> goodList = repof.getAll();
+	serv.addElem(series1);
+	serv.addElem(series2);
+	serv.addElem(series3);
+	serv.addElem(series4);
+	list<Series*> goodList = serv.getAllSeries();
 	assert(goodList.size() == 4);
 	Sleep(500);
 	cout << ".";
-	repof.delElem(series1);
-	goodList = repof.getAll();
+	serv.delElem(series1);
+	goodList = serv.getAllSeries();
 	Sleep(500);
 	cout << ".\n";
 	assert(goodList.size() == 3);
-	repof.updateElem(series2, series5);
-	assert(repof.findPositionOfElem(series5) == 0);
+	serv.updateElem(series2, series5);
+	assert(serv.findPositionOfElem(series5) == 0);
 	cout << "Success!\n";
 	cout << "-------------------------------------------------------------\n";
 	repof.delElem(series5);
@@ -93,11 +63,14 @@ void repoHTMLTests() {
 	repof.delElem(series4);
 }
 
-void repoCSVTests() {
+void serviceCSVTests() {
 	cout << "-------------------------------------------------------------\n";
-	cout << "Beginning tests for CSV repository.";
+	cout << "Beginning tests for service with CSV repository.";
 	SerializerSeries* serial = new SerializerSeries();
-	RepositoryFileHTML<Series*>repof("testsCSV.csv", serial);
+	SerializerUser* user = new SerializerUser();
+	RepositoryFileCSV<Series*>repof("testsCSV.csv", serial);
+	RepositoryFile<User*> repo("users.txt", ' ', user);
+	Service serv(repof, repo);
 	vector<string> operators;
 	string anOperator;
 	anOperator = "Vodafone";
@@ -112,21 +85,21 @@ void repoCSVTests() {
 	Series* series3 = new Drone(drone1);
 	Series* series4 = new Drone(drone2);
 	Series* series5 = new Drone(drone3);
-	repof.addElem(series1);
-	repof.addElem(series2);
-	repof.addElem(series3);
-	repof.addElem(series4);
-	list<Series*> goodList = repof.getAll();
+	serv.addElem(series1);
+	serv.addElem(series2);
+	serv.addElem(series3);
+	serv.addElem(series4);
+	list<Series*> goodList = serv.getAllSeries();
 	assert(goodList.size() == 4);
 	Sleep(500);
 	cout << ".";
-	repof.delElem(series1);
-	goodList = repof.getAll();
+	serv.delElem(series1);
+	goodList = serv.getAllSeries();
 	Sleep(500);
 	cout << ".\n";
 	assert(goodList.size() == 3);
-	repof.updateElem(series2, series5);
-	assert(repof.findPositionOfElem(series5) == 0);
+	serv.updateElem(series2, series5);
+	assert(serv.findPositionOfElem(series5) == 0);
 	cout << "Success!\n";
 	cout << "-------------------------------------------------------------\n";
 	repof.delElem(series5);

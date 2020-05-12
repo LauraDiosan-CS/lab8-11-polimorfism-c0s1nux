@@ -19,10 +19,12 @@ public:
 	~RepositoryFile();
 	RepositoryFile(const char*, const char, Serializer<T>*);
 	void saveToFile();
+	int addElem(T);
 	void loadFromFile(const char*, const char);
-	int addElem( T&);
-	int delElem( T&);
-	void updateElem(T, T&);
+	int delElem(T);
+	int updateElem(T, T);
+	int findElem(T);
+	list<T> searchByProductionName(char*);
 };
 
 template <class T> RepositoryFile<T>::RepositoryFile() :Repository<T>()
@@ -49,7 +51,7 @@ template<class T> void RepositoryFile<T>::saveToFile()
 	ofstream fout(this->fileName);
 	for (T t : this->getAll())
 	{
-		fout << t.toStringWithDelimiter(this->delimiter) <<"\n";
+		fout << t->toStringWithDelimiter(this->delimiter) <<"\n";
 	}
 	fout.close();
 }
@@ -70,7 +72,7 @@ template<class T> void RepositoryFile<T>::loadFromFile(const char* fileName, con
 	}
 }
 
-template<class T> int RepositoryFile<T>::addElem(T& object) {
+template<class T> int RepositoryFile<T>::addElem(T object) {
 	int result = Repository<T>::addElem(object);
 	if (result != 2) {
 		saveToFile();
@@ -79,7 +81,7 @@ template<class T> int RepositoryFile<T>::addElem(T& object) {
 	return 2;
 }
 
-template<class T> int RepositoryFile<T>::delElem(T& object) {
+template<class T> int RepositoryFile<T>::delElem(T object) {
 	int result = Repository<T>::delElem(object);
 	if (result != 2) {
 		saveToFile();
@@ -88,8 +90,26 @@ template<class T> int RepositoryFile<T>::delElem(T& object) {
 	return 2;
 }
 
-template<class T> void RepositoryFile<T>::updateElem(T oldObject, T& newObject)
+template<class T> int RepositoryFile<T>::updateElem(T oldObject, T newObject)
 {
-	Repository<T>::updateElem(oldObject, newObject);
-	saveToFile();
+	int result = Repository<T>::updateElem(oldObject, newObject);
+	if (result != 2) {
+		return 1;
+		saveToFile();
+	}
+	return 2;
+}
+
+template<class T> int RepositoryFile<T>::findElem(T object)
+{
+	int result = Repository<T>::findElem(object);
+	if (result == -1)
+		return -1;
+	else
+		return result;
+}
+
+template<class T> list<T> RepositoryFile<T>::searchByProductionName(char* aProductionName) {
+	list<T> goodList = Repository<T>::searchByProductionName(aProductionName);
+	return goodList;
 }

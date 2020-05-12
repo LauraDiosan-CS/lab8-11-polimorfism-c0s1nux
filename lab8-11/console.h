@@ -15,8 +15,8 @@ public:
 	void add();
 	void showAll();
 	void runConsole();
-	//void delProj();
-	//void findProj();
-	//void updateProj();      // WORK IN PROGRESS!
+	void del();
+	void update();
+	void searchByProductionName();
 	~Console();
 };

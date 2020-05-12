@@ -11,7 +11,7 @@ using namespace std;
 
 
 template<class T>
-class RepositoryFileCSV :public Repository<T>
+class RepositoryFileCSV :public RepositoryFile<T>
 {
 private:
 	const char* fileName;
@@ -22,12 +22,14 @@ public:
 	RepositoryFileCSV(const char*, Serializer<T>*);
 	void saveToFile();
 	void loadFromFile(const char*);
-	int addElem(T&);
-	int delElem(T&);
-	void updateElem(T, T&);
+	int addElem(T);
+	int delElem(T);
+	int updateElem(T, T);
+	int findElem(T);
+	list<T> searchByProductionName(char*);
 };
 
-template<class T> RepositoryFileCSV<T>::RepositoryFileCSV() :Repository<T>()
+template<class T> RepositoryFileCSV<T>::RepositoryFileCSV() :RepositoryFile<T>()
 {
 	fileName = "";
 }
@@ -49,7 +51,7 @@ template<class T> void RepositoryFileCSV<T>::saveToFile()
 	ofstream fout(this->fileName);
 	for (T t : this->getAll())
 	{
-		fout << t.toStringWithDelimiter(",") << "\n";
+		fout << t->toStringWithDelimiter(',') << "\n";
 	}
 	fout.close();
 }
@@ -60,17 +62,17 @@ template<class T> void RepositoryFileCSV<T>::loadFromFile(const char* fileName)
 		return;
 		this->fileName = fileName;
 		ifstream fin(this->fileName);
-		Repository<T>::clear();
+		this->clear();
 		string line;
 		if (fin.is_open()) {
 			while (getline(fin, line))
-				Repository<T>::addElem(serializer->fromString(line, ','));;
+				RepositoryFile<T>::addElem(serializer->fromString(line, ','));;
 			fin.close();
 		}
 }
 
-template<class T> int RepositoryFileCSV<T>::addElem(T& object) {
-	int result = Repository<T>::addElem(object);
+template<class T> int RepositoryFileCSV<T>::addElem(T object) {
+	int result = RepositoryFile<T>::addElem(object);
 	if (result != 2) {
 		saveToFile();
 		return 1;
@@ -78,16 +80,34 @@ template<class T> int RepositoryFileCSV<T>::addElem(T& object) {
 	return 2;
 }
 
-template<class T> int RepositoryFileCSV<T>::delElem(T& object) {
-	int result = Repository<T>::delElem(object);
+template<class T> int RepositoryFileCSV<T>::delElem(T object) {
+	int result = RepositoryFile<T>::delElem(object);
 	if (result != 2) {
 		saveToFile();
 		return 1;
 	}
 	return 2;
 }
-template<class T> void RepositoryFileCSV<T>::updateElem(T oldObject, T& newObject)
+template<class T> int RepositoryFileCSV<T>::updateElem(T oldObject, T newObject)
 {
-	Repository<T>::updateElem(oldObject, newObject);
-	saveToFile();
+	int result = RepositoryFile<T>::updateElem(oldObject, newObject);
+	if (result != 2) {
+		saveToFile();
+		return 1;
+	}
+	return 2;
+}
+
+template<class T> int RepositoryFileCSV<T>::findElem(T object)
+{
+	int result = RepositoryFile<T>::findElem(object);
+	if (result == -1)
+		return -1;
+	else
+		return result;
+}
+
+template<class T> list<T> RepositoryFileCSV<T>::searchByProductionName(char* aProductionName) {
+	list<T> goodList = RepositoryFile<T>::searchByProductionName(aProductionName);
+	return goodList;
 }

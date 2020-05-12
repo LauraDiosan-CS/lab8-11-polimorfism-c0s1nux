@@ -17,12 +17,13 @@ public:
 	virtual int addElem(T);
 	list<T> getAll();
 	virtual int delElem(T);
-	virtual void updateElem(T oldObject, T newObject);
+	virtual int updateElem(T oldObject, T newObject);
 	int findPositionOfElem(T);
 	int getSize();
 	T getItemFromPos(int);
 	void clear();
 	int findElem(T);
+	list<T> searchByProductionName(char*);
 };
 
 
@@ -69,7 +70,7 @@ template<class T> int Repository<T>::delElem(T object)
 	return 2;  
 }
 
-template<class T> void Repository<T>::updateElem(T oldObject, T newObject)
+template<class T> int Repository<T>::updateElem(T oldObject, T newObject)
 {
 	typename list<T>::iterator it;
 	for (it = elem.begin(); it != elem.end(); ++it)
@@ -77,9 +78,11 @@ template<class T> void Repository<T>::updateElem(T oldObject, T newObject)
 
 		if ((*it)->toString() == oldObject->toString())
 		{
-			oldObject = newObject->clone();
+			*it = newObject->clone();
+			return 1;
 		}
 	}
+	return 2;
 }
 
 template<class T> int Repository<T>::findPositionOfElem(T object)
@@ -132,4 +135,14 @@ template<class T> int Repository<T>::findElem(T object)
 		i++;
 	}
 	return -1;
+}
+
+template<class T> list<T> Repository<T>::searchByProductionName(char* aProductionName) {
+	list<T> goodList;
+	for (int i = 0; i < elem.size(); i++) {
+		T object = getItemFromPos(i);
+		if (strcmp(object->getProductionName(), aProductionName) == 0)
+			goodList.push_back(object);
+	}
+	return goodList;
 }

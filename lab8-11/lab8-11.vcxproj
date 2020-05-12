@@ -156,6 +156,7 @@
     <ClCompile Include="series.cpp" />
     <ClCompile Include="seriesValidation.cpp" />
     <ClCompile Include="service.cpp" />
+    <ClCompile Include="serviceTests.cpp" />
     <ClCompile Include="testsForObjects.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="yo.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="series.h" />
     <ClInclude Include="seriesValidation.h" />
     <ClInclude Include="service.h" />
+    <ClInclude Include="serviceTests.h" />
     <ClInclude Include="testsForObjects.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="yo.h" />
@@ -184,8 +186,8 @@
     <Text Include="users.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="tests.html" />
+    <None Include="testsCSV.csv" />
     <None Include="things.csv" />
     <None Include="things.html" />
   </ItemGroup>

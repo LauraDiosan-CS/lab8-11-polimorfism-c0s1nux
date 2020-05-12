@@ -1,4 +1,5 @@
 #pragma once
 
 void repoTests();
-void repoFileTests();
+void repoHTMLTests();
+void repoCSVTests();

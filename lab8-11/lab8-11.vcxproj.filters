@@ -51,6 +51,9 @@
     <ClCompile Include="console.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="serviceTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="phone.h">
@@ -107,14 +110,21 @@
     <ClInclude Include="console.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="serviceTests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="things.html">
       <Filter>Source Files</Filter>
     </None>
     <None Include="things.csv">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="tests.html">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="testsCSV.csv">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
